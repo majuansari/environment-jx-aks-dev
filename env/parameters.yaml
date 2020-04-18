@@ -1,0 +1,10 @@
+adminUser:
+  password: local:majutest/adminUser:password
+  username: admin
+enableDocker: false
+pipelineUser:
+  email: majjansari@gmail.com
+  token: local:majutest/pipelineUser:token
+  username: majuansari
+prow:
+  hmacToken: local:majutest/prow:hmacToken

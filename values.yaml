@@ -1,0 +1,2 @@
+jenkins-x-platform:
+    dockerRegistry: majutest.azurecr.io
