@@ -5,3 +5,9 @@ dependencies:
   url: https://github.com/majuansari/jx-go.git
   version: ""
   versionURL: ""
+- host: github.com
+  owner: majuansari
+  repo: jx-gov2
+  url: https://github.com/majuansari/jx-gov2.git
+  version: ""
+  versionURL: ""
