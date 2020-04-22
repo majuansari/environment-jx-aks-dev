@@ -26,7 +26,7 @@ environments:
   key: staging
   repository: environment-jx-aks-staging
 - ingress:
-    domain: 52.188.39.179.nip.io
+    domain: 52.188.140.27.nip.io
     externalDNS: false
     namespaceSubDomain: -jx.
     tls:
@@ -47,7 +47,7 @@ environments:
   repository: environment-jx-aks-prod
 gitops: true
 ingress:
-  domain: 52.188.39.179.nip.io
+  domain: 52.188.140.27.nip.io
   externalDNS: false
   namespaceSubDomain: -jx.
   tls:
