@@ -5,6 +5,9 @@ metadata:
     jenkins.io/last-build-number-for-master: "6"
   creationTimestamp: null
   labels:
+    jenkins.io/chart-release: repos
+    jenkins.io/namespace: jx
+    jenkins.io/version: "1"
     owner: majuansari
     provider: github
     repository: go-demo-6
