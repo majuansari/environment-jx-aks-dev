@@ -17,3 +17,9 @@ dependencies:
   url: https://github.com/majuansari/go-demo-6.git
   version: ""
   versionURL: ""
+- host: github.com
+  owner: majuansari
+  repo: app
+  url: https://github.com/majuansari/app.git
+  version: ""
+  versionURL: ""
