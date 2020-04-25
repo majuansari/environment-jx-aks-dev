@@ -1,0 +1,21 @@
+apiVersion: jenkins.io/v1
+kind: SourceRepository
+metadata:
+  creationTimestamp: null
+  labels:
+    owner: majuansari
+    provider: github
+    repository: app
+  name: majuansari-app
+spec:
+  description: Imported application for majuansari/app
+  httpCloneURL: https://github.com/majuansari/app.git
+  org: majuansari
+  provider: https://github.com
+  providerKind: github
+  providerName: github
+  repo: app
+  scheduler:
+    kind: ""
+    name: ""
+  url: https://github.com/majuansari/app.git
