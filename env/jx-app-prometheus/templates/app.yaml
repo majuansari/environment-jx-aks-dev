@@ -8,6 +8,6 @@ metadata:
   creationTimestamp: null
   labels:
     jenkins.io/app-name: jx-app-prometheus
-    jenkins.io/app-version: 0.0.3
+    jenkins.io/app-version: 1.0.0-dev
   name: jx-app-prometheus
 spec: {}

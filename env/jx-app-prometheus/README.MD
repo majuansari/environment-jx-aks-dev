@@ -2,7 +2,7 @@
 
 |App Metadata||
 |---|---|
-| **Version** | 0.0.3 |
+| **Version** | 1.0.0-dev |
 | **Description** | A Helm chart for replicating secrets and configmaps across Kubernetes namespaces |
 | **Chart Repository** | http://chartmuseum.jenkins-x.io |
 
