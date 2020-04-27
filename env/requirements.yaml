@@ -24,3 +24,6 @@ dependencies:
 - name: jaeger-operator
   repository: https://jaegertracing.github.io/helm-charts
   version: 2.14.2
+- name: jx-app-prometheus
+  repository: http://chartmuseum.jenkins-x.io
+  version: 1.0.0-dev
