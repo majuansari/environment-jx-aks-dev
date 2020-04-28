@@ -16,6 +16,7 @@ cluster:
   registry: majutest.azurecr.io
 environments:
 - ingress:
+    domain: ""
     externalDNS: false
     namespaceSubDomain: ""
     tls:
@@ -25,6 +26,7 @@ environments:
   key: staging
   repository: environment-jx-aks-staging
 - ingress:
+    domain: ""
     externalDNS: false
     namespaceSubDomain: -jx.
     tls:
@@ -34,6 +36,7 @@ environments:
   key: dev
   repository: environment-jx-aks-dev
 - ingress:
+    domain: ""
     externalDNS: false
     namespaceSubDomain: ""
     tls:
