@@ -24,3 +24,6 @@ dependencies:
 - name: jaeger-operator
   repository: https://jaegertracing.github.io/helm-charts
   version: 2.14.2
+- name: prometheus-operator
+  repository: https://kubernetes-charts.storage.googleapis.com
+  version: 8.13.2
