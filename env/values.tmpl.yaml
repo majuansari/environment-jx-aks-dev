@@ -11,3 +11,8 @@ tekton:
 dex:
   certs:
     newApi: true
+
+cluster:
+  domain: {{ .Requirements.ingress.domain }}
+  namespace: {{ .Requirements.cluster.namespace | default "jx" }}
+  namespaceSubDomain: {{ .Requirements.ingress.namespaceSubDomain | default ".jx." }}
