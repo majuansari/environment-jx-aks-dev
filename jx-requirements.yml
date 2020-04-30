@@ -26,6 +26,16 @@ environments:
   key: staging
   repository: environment-jx-aks-staging
 - ingress:
+    domain: ""
+    externalDNS: false
+    namespaceSubDomain: ""
+    tls:
+      email: ""
+      enabled: false
+      production: false
+  key: sit
+  repository: environment-jx-aks-sit  
+- ingress:
     domain: 52.149.236.148.nip.io
     externalDNS: false
     namespaceSubDomain: -jx.
