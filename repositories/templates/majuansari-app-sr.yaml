@@ -8,7 +8,7 @@ metadata:
   labels:
     jenkins.io/chart-release: repos
     jenkins.io/namespace: jx
-    jenkins.io/version: "2"
+    jenkins.io/version: "1"
     owner: majuansari
     provider: github
     repository: app
@@ -23,5 +23,5 @@ spec:
   repo: app
   scheduler:
     kind: ""
-    name: sit-scheduler
+    name: default-scheduler
   url: https://github.com/majuansari/app.git
