@@ -13,9 +13,6 @@ metadata:
     repository: app
   name: majuansari-app
   namespace: jx
-  resourceVersion: "2310288"
-  selfLink: /apis/jenkins.io/v1/namespaces/jx/sourcerepositories/majuansari-app
-  uid: 79772ceb-c0ec-4f08-819f-d55bd5442380
 spec:
   description: Imported application for majuansari/app
   httpCloneURL: https://github.com/majuansari/app.git
