@@ -1,0 +1,20 @@
+apiVersion: jenkins.io/v1
+kind: Environment
+metadata:
+  creationTimestamp: null
+  name: sit
+spec:
+  kind: Permanent
+  label: SIT
+  namespace: jx-sit
+  order: 100
+  previewGitInfo:
+    user: {}
+  promotionStrategy: Auto
+  source:
+    url: https://github.com/majuansari/environment-jx-sit
+  teamSettings:
+    defaultScheduler:
+      kind: "Scheduler"
+      name: "sit-scheduler"
+status: {}
