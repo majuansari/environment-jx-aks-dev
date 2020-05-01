@@ -1,14 +1,11 @@
 apiVersion: jenkins.io/v1
 kind: Environment
 metadata:
-  generation: 1
+  labels:
+    env: test
   name: test
-  namespace: jx
 spec:
-  kind: Permanent
-  label: Test
-  namespace: jx-test
-  order: 100
+  namespace: "jx-test"
   previewGitInfo:
     user: {}
   promotionStrategy: Auto
@@ -16,7 +13,20 @@ spec:
     ref: master
     url: https://github.com/majuansari/environment-jx-aks-test.git
   teamSettings:
+    appsRepository: http://chartmuseum.jenkins-x.io
+    buildPackName: kubernetes-workloads
+    buildPackRef: master
+    buildPackUrl: https://github.com/jenkins-x-buildpacks/jenkins-x-kubernetes.git
     defaultScheduler:
-      kind: ""
-      name: ""
-status: {}
+      apiVersion: jenkins.io/v1
+      kind: Scheduler
+      name: default-scheduler
+    gitServer: https://github.com
+    helmTemplate: true
+    importMode: YAML
+    pipelineUsername: "{{ .Values.JenkinsXGitHub.username }}"
+    promotionEngine: Prow
+    prowConfig: Scheduler
+    prowEngine: Tekton
+    useGitOps: true
+  webHookEngine: "{{ .Values.gitops.webhook }}"
