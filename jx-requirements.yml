@@ -33,10 +33,10 @@ environments:
       email: ""
       enabled: false
       production: false
-  key: sit
-  repository: environment-jx-aks-sit
+  key: test
+  repository: environment-jx-aks-test
 - ingress:
-    domain: 52.142.28.110.nip.io
+    domain: ""
     externalDNS: false
     namespaceSubDomain: -jx.
     tls:
@@ -46,7 +46,7 @@ environments:
   key: dev
   repository: environment-jx-aks-dev
 - ingress:
-    domain: prod.52.152.189.160.nip.io
+    domain: ""
     externalDNS: false
     namespaceSubDomain: ""
     tls:
