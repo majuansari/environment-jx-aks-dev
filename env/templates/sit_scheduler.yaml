@@ -1,4 +1,4 @@
-piVersion: jenkins.io/v1
+apiVersion: jenkins.io/v1
 kind: Scheduler
 metadata:
   annotations:
