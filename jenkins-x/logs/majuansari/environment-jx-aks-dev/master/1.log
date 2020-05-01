@@ -1,26 +1,26 @@
 
-Showing logs for build [32mmajuansari-environment-jx-aks-d-fgjpc-1[0m stage [32mrelease[0m and container [32mstep-credential-initializer-7xt7d[0m
-{"level":"info","ts":1588230242.0746992,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/refs/heads/0.8.0-ns-support: no such file or directory"}
-{"level":"info","ts":1588230242.0750306,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+Showing logs for build [32mmajuansari-environment-jx-aks-d-4t5n4-1[0m stage [32mrelease[0m and container [32mstep-credential-initializer-8ttdg[0m
+{"level":"info","ts":1588315358.641558,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/refs/heads/0.8.0-ns-support: no such file or directory"}
+{"level":"info","ts":1588315358.6417859,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
 
-Showing logs for build [32mmajuansari-environment-jx-aks-d-fgjpc-1[0m stage [32mrelease[0m and container [32mstep-working-dir-initializer-f6qhp[0m
-{"level":"info","ts":1588230243.007986,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
-{"level":"info","ts":1588230243.013364,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully executed command \"sh -c mkdir -p /workspace/source\"; output "}
+Showing logs for build [32mmajuansari-environment-jx-aks-d-4t5n4-1[0m stage [32mrelease[0m and container [32mstep-working-dir-initializer-c2knk[0m
+{"level":"info","ts":1588315359.5983164,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1588315359.6000152,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully executed command \"sh -c mkdir -p /workspace/source\"; output "}
 
-Showing logs for build [32mmajuansari-environment-jx-aks-d-fgjpc-1[0m stage [32mrelease[0m and container [32mstep-place-tools[0m
+Showing logs for build [32mmajuansari-environment-jx-aks-d-4t5n4-1[0m stage [32mrelease[0m and container [32mstep-place-tools[0m
 
-Showing logs for build [32mmajuansari-environment-jx-aks-d-fgjpc-1[0m stage [32mrelease[0m and container [32mstep-git-source-majuansari-environment-jx-aks-d-fgjpc-mgjmz[0m
-{"level":"info","ts":1588230257.3170578,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/refs/heads/0.8.0-ns-support: no such file or directory"}
-{"level":"info","ts":1588230259.478946,"logger":"fallback-logger","caller":"git/git.go:103","msg":"Successfully cloned https://github.com/**********/environment-**-aks-dev.git @ v0.0.44 in path /workspace/source"}
+Showing logs for build [32mmajuansari-environment-jx-aks-d-4t5n4-1[0m stage [32mrelease[0m and container [32mstep-git-source-majuansari-environment-jx-aks-d-4t5n4-qg26d[0m
+{"level":"info","ts":1588315371.6460261,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/refs/heads/0.8.0-ns-support: no such file or directory"}
+{"level":"info","ts":1588315372.0060418,"logger":"fallback-logger","caller":"git/git.go:103","msg":"Successfully cloned https://github.com/**********/environment-**-aks-dev.git @ v0.0.54 in path /workspace/source"}
 
-Showing logs for build [32mmajuansari-environment-jx-aks-d-fgjpc-1[0m stage [32mrelease[0m and container [32mstep-git-merge[0m
-Using SHAs from PULL_REFS=master:aa0a14f28f72620fa761eec0af3771160453c3ca
+Showing logs for build [32mmajuansari-environment-jx-aks-d-4t5n4-1[0m stage [32mrelease[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:4f4c874be9fdd68bf016f4fa5668d9557baa47bb
 WARNING: no SHAs to merge, falling back to initial cloned commit
 
-Showing logs for build [32mmajuansari-environment-jx-aks-d-fgjpc-1[0m stage [32mrelease[0m and container [32mstep-validate-git[0m
+Showing logs for build [32mmajuansari-environment-jx-aks-d-4t5n4-1[0m stage [32mrelease[0m and container [32mstep-validate-git[0m
 Git configured for user: jenkins-x-bot and email jenkins-x@googlegroups.com
 
-Showing logs for build [32mmajuansari-environment-jx-aks-d-fgjpc-1[0m stage [32mrelease[0m and container [32mstep-verify-preinstall[0m
+Showing logs for build [32mmajuansari-environment-jx-aks-d-4t5n4-1[0m stage [32mrelease[0m and container [32mstep-verify-preinstall[0m
 ** boot has only been validated on GKE and EKS, we'd love feedback and contributions for other Kubernetes providers
 Running in Batch Mode, execution will continue
 writing the following to the OWNERS file for the development environment repository:
@@ -32,7 +32,7 @@ WARNING: TLS is not enabled so your webhooks will be called using HTTP. This mea
 Verifying the kubernetes cluster before we try to boot Jenkins X in namespace: **
 Trying to lazily create any missing resources to get the current cluster ready to boot Jenkins X
 Verifying Ingress...
-Clearing the domain 52.149.236.148.nip.io as when using auto-DNS domains we need to regenerate to ensure its always accurate in case the cluster or ingress service is recreated
+Clearing the domain 20.42.25.30.nip.io as when using auto-DNS domains we need to regenerate to ensure its always accurate in case the cluster or ingress service is recreated
 
 Using namespace '**' from context named '' on server ''.
 
@@ -58,25 +58,25 @@ Ensuring Helm chart repository https://storage.googleapis.com/chartmuseum.jenkin
 Cluster looks good, you are ready to '** boot' now!
 
 
-Showing logs for build [32mmajuansari-environment-jx-aks-d-fgjpc-1[0m stage [32mrelease[0m and container [32mstep-install-jx-crds[0m
+Showing logs for build [32mmajuansari-environment-jx-aks-d-4t5n4-1[0m stage [32mrelease[0m and container [32mstep-install-jx-crds[0m
 Jenkins X CRDs upgraded with success
 
-Showing logs for build [32mmajuansari-environment-jx-aks-d-fgjpc-1[0m stage [32mrelease[0m and container [32mstep-install-velero[0m
+Showing logs for build [32mmajuansari-environment-jx-aks-d-4t5n4-1[0m stage [32mrelease[0m and container [32mstep-install-velero[0m
 Modified file /workspace/source/systems/velero/Chart.yaml to set the chart to version 1
 creating the lock configmap **-lock-velero
 lock configmap **-lock-velero created
 Verifying the helm requirements versions in dir: . using version stream URL: https://github.com/jenkins-x/jenkins-x-versions.git and git ref: v1.0.426
 cleaning the lock configmap **-lock-velero
 
-Showing logs for build [32mmajuansari-environment-jx-aks-d-fgjpc-1[0m stage [32mrelease[0m and container [32mstep-install-velero-backups[0m
+Showing logs for build [32mmajuansari-environment-jx-aks-d-4t5n4-1[0m stage [32mrelease[0m and container [32mstep-install-velero-backups[0m
 Modified file /workspace/source/systems/velero-backups/Chart.yaml to set the chart to version 1
 creating the lock configmap **-lock-velero
 lock configmap **-lock-velero created
 Ignoring templates/default-backup.yaml
-No requirements file: /tmp/**-helm-apply-560497627/velero-backups/requirements.yaml so not checking for missing versions
+No requirements file: /tmp/**-helm-apply-348198567/velero-backups/requirements.yaml so not checking for missing versions
 cleaning the lock configmap **-lock-velero
 
-Showing logs for build [32mmajuansari-environment-jx-aks-d-fgjpc-1[0m stage [32mrelease[0m and container [32mstep-install-nginx-controller[0m
+Showing logs for build [32mmajuansari-environment-jx-aks-d-4t5n4-1[0m stage [32mrelease[0m and container [32mstep-install-nginx-controller[0m
 Modified file /workspace/source/systems/**ing/Chart.yaml to set the chart to version 1
 creating the lock configmap **-lock-kube-system
 lock configmap **-lock-kube-system created
@@ -84,12 +84,12 @@ Verifying the helm requirements versions in dir: . using version stream URL: htt
 
 cleaning the lock configmap **-lock-kube-system
 
-Showing logs for build [32mmajuansari-environment-jx-aks-d-fgjpc-1[0m stage [32mrelease[0m and container [32mstep-create-install-values[0m
+Showing logs for build [32mmajuansari-environment-jx-aks-d-4t5n4-1[0m stage [32mrelease[0m and container [32mstep-create-install-values[0m
 Waiting to find the external host name of the ingress controller Service in namespace kube-system with name **ing-nginx-ingress-controller
-No domain flag provided so using default 52.149.236.148.nip.io to generate Ingress rules
-defaulting the domain to 52.149.236.148.nip.io and modified /workspace/source/**-requirements.yml
+No domain flag provided so using default 20.42.25.30.nip.io to generate Ingress rules
+defaulting the domain to 20.42.25.30.nip.io and modified /workspace/source/**-requirements.yml
 
-Showing logs for build [32mmajuansari-environment-jx-aks-d-fgjpc-1[0m stage [32mrelease[0m and container [32mstep-install-external-dns[0m
+Showing logs for build [32mmajuansari-environment-jx-aks-d-4t5n4-1[0m stage [32mrelease[0m and container [32mstep-install-external-dns[0m
 Modified file /workspace/source/systems/external-dns/Chart.yaml to set the chart to version 1
 creating the lock configmap **-lock-**
 lock configmap **-lock-** created
@@ -98,7 +98,7 @@ Adding missing Helm repo: charts.bitnami.com https://charts.bitnami.com/bitnami
 Successfully added Helm repository charts.bitnami.com.
 cleaning the lock configmap **-lock-**
 
-Showing logs for build [32mmajuansari-environment-jx-aks-d-fgjpc-1[0m stage [32mrelease[0m and container [32mstep-install-cert-manager-crds[0m
+Showing logs for build [32mmajuansari-environment-jx-aks-d-4t5n4-1[0m stage [32mrelease[0m and container [32mstep-install-cert-manager-crds[0m
 customresourcedefinition.apiextensions.k8s.io/challenges.acme.cert-manager.io configured
 customresourcedefinition.apiextensions.k8s.io/orders.acme.cert-manager.io configured
 customresourcedefinition.apiextensions.k8s.io/certificaterequests.cert-manager.io configured
@@ -106,7 +106,7 @@ customresourcedefinition.apiextensions.k8s.io/certificates.cert-manager.io confi
 customresourcedefinition.apiextensions.k8s.io/clusterissuers.cert-manager.io configured
 customresourcedefinition.apiextensions.k8s.io/issuers.cert-manager.io configured
 
-Showing logs for build [32mmajuansari-environment-jx-aks-d-fgjpc-1[0m stage [32mrelease[0m and container [32mstep-install-cert-manager[0m
+Showing logs for build [32mmajuansari-environment-jx-aks-d-4t5n4-1[0m stage [32mrelease[0m and container [32mstep-install-cert-manager[0m
 Modified file /workspace/source/systems/cm/Chart.yaml to set the chart to version 1
 creating the lock configmap **-lock-cert-manager
 lock configmap **-lock-cert-manager created
@@ -115,7 +115,7 @@ Adding missing Helm repo: charts.jetstack.io https://charts.jetstack.io
 Successfully added Helm repository charts.jetstack.io.
 cleaning the lock configmap **-lock-cert-manager
 
-Showing logs for build [32mmajuansari-environment-jx-aks-d-fgjpc-1[0m stage [32mrelease[0m and container [32mstep-install-acme-issuer-and-certificate[0m
+Showing logs for build [32mmajuansari-environment-jx-aks-d-4t5n4-1[0m stage [32mrelease[0m and container [32mstep-install-acme-issuer-and-certificate[0m
 Modified file /workspace/source/systems/acme/Chart.yaml to set the chart to version 1
 creating the lock configmap **-lock-**
 lock configmap **-lock-** created
@@ -123,13 +123,13 @@ Ignoring templates/cert-manager-prod-certificate.yaml
 Ignoring templates/cert-manager-prod-issuer.yaml
 Ignoring templates/cert-manager-staging-certificate.yaml
 Ignoring templates/cert-manager-staging-issuer.yaml
-No requirements file: /tmp/**-helm-apply-560890399/acme/requirements.yaml so not checking for missing versions
+No requirements file: /tmp/**-helm-apply-655835956/acme/requirements.yaml so not checking for missing versions
 cleaning the lock configmap **-lock-**
 
-Showing logs for build [32mmajuansari-environment-jx-aks-d-fgjpc-1[0m stage [32mrelease[0m and container [32mstep-install-vault[0m
+Showing logs for build [32mmajuansari-environment-jx-aks-d-4t5n4-1[0m stage [32mrelease[0m and container [32mstep-install-vault[0m
 Not attempting to boot Vault as using secret storage: local
 
-Showing logs for build [32mmajuansari-environment-jx-aks-d-fgjpc-1[0m stage [32mrelease[0m and container [32mstep-create-helm-values[0m
+Showing logs for build [32mmajuansari-environment-jx-aks-d-4t5n4-1[0m stage [32mrelease[0m and container [32mstep-create-helm-values[0m
 defaulting to secret storage scheme local found from requirements file at /workspace/source/**-requirements.yml
 defaulting to secret base path to the cluster name majutest found from requirements file at /workspace/source/**-requirements.yml
 generated schema file /workspace/source/env/parameters.schema.json from template /workspace/source/env/parameters.tmpl.schema.json
@@ -141,22 +141,23 @@ Pipeline bot Git token *** [Automatically accepted existing value]
 HMAC token, used to validate incoming webhooks. Press enter to use the generated token *** [Automatically accepted existing value]
 Do you want to configure an external Docker Registry? false [Automatically accepted existing value]
 
-Showing logs for build [32mmajuansari-environment-jx-aks-d-fgjpc-1[0m stage [32mrelease[0m and container [32mstep-create-jx-auth-config[0m
+Showing logs for build [32mmajuansari-environment-jx-aks-d-4t5n4-1[0m stage [32mrelease[0m and container [32mstep-create-jx-auth-config[0m
 Saved the rendered configuration into templates/**-auth-configmap.yaml file
 
-Showing logs for build [32mmajuansari-environment-jx-aks-d-fgjpc-1[0m stage [32mrelease[0m and container [32mstep-install-jx-auth-config[0m
+Showing logs for build [32mmajuansari-environment-jx-aks-d-4t5n4-1[0m stage [32mrelease[0m and container [32mstep-install-jx-auth-config[0m
 Modified file /workspace/source/systems/**-auth/Chart.yaml to set the chart to version 1
 creating the lock configmap **-lock-**
 lock configmap **-lock-** created
 Ignoring templates/**-auth-configmap.yaml
-No requirements file: /tmp/**-helm-apply-773100920/**-auth/requirements.yaml so not checking for missing versions
+No requirements file: /tmp/**-helm-apply-085663166/**-auth/requirements.yaml so not checking for missing versions
 cleaning the lock configmap **-lock-**
 
-Showing logs for build [32mmajuansari-environment-jx-aks-d-fgjpc-1[0m stage [32mrelease[0m and container [32mstep-install-jenkins-x[0m
+Showing logs for build [32mmajuansari-environment-jx-aks-d-4t5n4-1[0m stage [32mrelease[0m and container [32mstep-install-jenkins-x[0m
 Modified file /workspace/source/env/Chart.yaml to set the chart to version 1
 creating the lock configmap **-lock-**
 lock configmap **-lock-** created
 Ignoring templates/.gitignore
+Ignoring templates/sit_scheduler.yaml
 Applying the kubernetes overrides at ../kubeProviders/aks/values.tmpl.yaml
 Verifying the helm requirements versions in dir: . using version stream URL: https://github.com/jenkins-x/jenkins-x-versions.git and git ref: v1.0.426
 Adding missing Helm repo: chartmuseum.jenkins-x.io http://chartmuseum.jenkins-x.io
@@ -164,7 +165,7 @@ Successfully added Helm repository chartmuseum.jenkins-x.io.
 
 cleaning the lock configmap **-lock-**
 
-Showing logs for build [32mmajuansari-environment-jx-aks-d-fgjpc-1[0m stage [32mrelease[0m and container [32mstep-verify-jenkins-x-environment[0m
+Showing logs for build [32mmajuansari-environment-jx-aks-d-4t5n4-1[0m stage [32mrelease[0m and container [32mstep-verify-jenkins-x-environment[0m
 Storing the requirements in team settings in the dev environment
 Validating git repository for dev environment at URL https://github.com/**********/environment-**-aks-dev.git
 Validating git repository for production environment at URL https://github.com/**********/environment-**-aks-prod.git
@@ -175,7 +176,92 @@ Creating repository **********/environment-**-aks-prod
 Git repository **********/environment-**-aks-prod already exists
 Pushed Git repository to https://github.com/**********/environment-**-aks-prod
 
-Validating git repository for sit environment at URL https://github.com/**********/environment-**-sit.git
-error: creating environment helm values: looking the configuration of environment "sit" in the requirements configuration: environment "sit" not found
-[31m
-Pipeline failed on stage 'release' : container 'step-verify-jenkins-x-environment'. The execution of the pipeline has stopped.[0m
+Validating git repository for staging environment at URL https://github.com/**********/environment-**-aks-staging.git
+Using Git provider github at https://github.com
+? Using Git user name: **********
+? Using organisation: **********
+Creating repository **********/environment-**-aks-staging
+Git repository **********/environment-**-aks-staging already exists
+Pushed Git repository to https://github.com/**********/environment-**-aks-staging
+
+Environment git repositories look good
+
+
+Showing logs for build [32mmajuansari-environment-jx-aks-d-4t5n4-1[0m stage [32mrelease[0m and container [32mstep-install-repositories[0m
+Modified file /workspace/source/repositories/Chart.yaml to set the chart to version 1
+creating the lock configmap **-lock-**
+lock configmap **-lock-** created
+Ignoring templates/default-group.yaml
+Ignoring templates/**********-app-sr.yaml
+Ignoring templates/**********-go-demo-6-sr.yaml
+Ignoring templates/**********-**-go-sr.yaml
+Ignoring templates/**********-**-gov2-sr.yaml
+No requirements file: /tmp/**-helm-apply-136670202/repositories/requirements.yaml so not checking for missing versions
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Adding missing Helm repo: jenkins-x-chartmuseum http://jenkins-x-chartmuseum:8080
+Successfully added Helm repository jenkins-x-chartmuseum.
+
+cleaning the lock configmap **-lock-**
+
+Showing logs for build [32mmajuansari-environment-jx-aks-d-4t5n4-1[0m stage [32mrelease[0m and container [32mstep-install-pipelines[0m
+
+Showing logs for build [32mmajuansari-environment-jx-aks-d-4t5n4-1[0m stage [32mrelease[0m and container [32mstep-update-webhooks[0m
+DEBUG: Finding service url for hook in namespace **
+DEBUG: Couldn't find service url, attempting to look up via ingress
+DEBUG: found service url http://hook-**.20.42.25.30.nip.io
+Updating webhooks for Owner: ********** and Repository: app in git server: https://github.com
+Checking hooks for repository **********/app with user **********
+Found matching hook for url http://hook-**.20.42.25.30.nip.io/hook
+Updating GitHub webhook for **********/app for url http://hook-**.20.42.25.30.nip.io/hook
+Updating webhooks for Owner: ********** and Repository: environment-**-aks-dev in git server: https://github.com
+Checking hooks for repository **********/environment-**-aks-dev with user **********
+Found matching hook for url http://hook-**.20.42.25.30.nip.io/hook
+Updating GitHub webhook for **********/environment-**-aks-dev for url http://hook-**.20.42.25.30.nip.io/hook
+Updating webhooks for Owner: ********** and Repository: environment-**-aks-prod in git server: https://github.com
+Checking hooks for repository **********/environment-**-aks-prod with user **********
+Found matching hook for url http://hook-**.20.42.25.30.nip.io/hook
+Updating GitHub webhook for **********/environment-**-aks-prod for url http://hook-**.20.42.25.30.nip.io/hook
+Updating webhooks for Owner: ********** and Repository: environment-**-aks-staging in git server: https://github.com
+Checking hooks for repository **********/environment-**-aks-staging with user **********
+Found matching hook for url http://hook-**.20.42.25.30.nip.io/hook
+Updating GitHub webhook for **********/environment-**-aks-staging for url http://hook-**.20.42.25.30.nip.io/hook
+Updating webhooks for Owner: ********** and Repository: go-demo-6 in git server: https://github.com
+Checking hooks for repository **********/go-demo-6 with user **********
+Found matching hook for url http://hook-**.20.42.25.30.nip.io/hook
+Updating GitHub webhook for **********/go-demo-6 for url http://hook-**.20.42.25.30.nip.io/hook
+Updating webhooks for Owner: ********** and Repository: **-go in git server: https://github.com
+Checking hooks for repository **********/**-go with user **********
+Found matching hook for url http://hook-**.20.42.25.30.nip.io/hook
+Updating GitHub webhook for **********/**-go for url http://hook-**.20.42.25.30.nip.io/hook
+Updating webhooks for Owner: ********** and Repository: **-gov2 in git server: https://github.com
+Checking hooks for repository **********/**-gov2 with user **********
+Found matching hook for url http://hook-**.20.42.25.30.nip.io/hook
+Updating GitHub webhook for **********/**-gov2 for url http://hook-**.20.42.25.30.nip.io/hook
+
+Showing logs for build [32mmajuansari-environment-jx-aks-d-4t5n4-1[0m stage [32mrelease[0m and container [32mstep-verify-installation[0m
+verifying the Jenkins X installation in namespace **
+verifying pods
+Checking pod statuses
+POD                                         STATUS
+crier-76bb69cdcc-svqzq                      Running
+deck-6d894bd6c-9kdpp                        Running
+deck-6d894bd6c-kwwnw                        Running
+hook-68777d88c7-l927c                       Running
+hook-68777d88c7-vzqvj                       Running
+horologium-7ffb6d7cfd-59t5s                 Running
+jenkins-x-chartmuseum-5459d54d46-ld7ts      Running
+jenkins-x-controllerbuild-59f5d6b9b9-hcltb  Running
+jenkins-x-controllerrole-79cd8b589f-vdp5m   Running
+jenkins-x-heapster-86b88b86df-49hvk         Running
+jenkins-x-**ui-7bd8445b9-46cz4              Running
+jenkins-x-nexus-c7c5477ff-btnv4             Running
+pipeline-599c968cc5-q9pdn                   Running
+pipelinerunner-5dd4b4fc5b-5jwtn             Running
+tekton-pipelines-controller-566bfd578-jwx5m Running
+tide-5f6df69548-wh8b6                       Running
+Verifying the git config
+Verifying username ********** at git server github at https://github.com
+Found 2 organisations in git server https://github.com: Testingmaju, opensource-mindfire
+Validated pipeline user ********** on git server https://github.com
+Git tokens seem to be setup correctly
+Installation is currently looking: GOOD
