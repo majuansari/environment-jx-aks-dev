@@ -36,7 +36,7 @@ environments:
   key: sit
   repository: environment-jx-aks-sit
 - ingress:
-    domain: 40.88.16.236.nip.io
+    domain: 52.142.28.110.nip.io
     externalDNS: false
     namespaceSubDomain: -jx.
     tls:
@@ -57,7 +57,7 @@ environments:
   repository: environment-jx-aks-prod
 gitops: true
 ingress:
-  domain: 40.88.16.236.nip.io
+  domain: 52.142.28.110.nip.io
   externalDNS: false
   namespaceSubDomain: -jx.
   tls:
