@@ -1,57 +1,91 @@
 apiVersion: jenkins.io/v1
 kind: Scheduler
 metadata:
+  annotations:
+    jenkins.io/chart: env
+  generation: 1
+  labels:
+    jenkins.io/chart-release: jenkins-x
+    jenkins.io/namespace: jx
+    jenkins.io/version: "4"
   name: sit-scheduler
+  namespace: jx-sit
 spec:
+  approve:
+    issueRequired: false
+    lgtmActsAsApprove: true
+    requireSelfApproval: true
+  merger:
+    blockerLabel: ""
+    maxGoroutines: 0
+    mergeMethod: merge
+    policy:
+      fromBranchProtection: true
+      optionalContexts: {}
+      requiredContexts: {}
+      requiredIfPresentContexts: {}
+      skipUnknownContexts: false
+    prStatusBaseUrl: ""
+    squashLabel: ""
+    targetUrl: http://deck{{ .Values.cluster.namespaceSubDomain }}{{ .Values.cluster.domain }}
   plugins:
     entries:
-      - label
+    - approve
+    - assign
+    - blunderbuss
+    - help
+    - hold
+    - lgtm
+    - lifecycle
+    - override
+    - size
+    - trigger
+    - wip
+    - heart
+    - cat
+    - dog
+    - pony
+  policy:
+    protectTested: true
   postsubmits:
-    replace: true
     entries:
-    - agent: tekton
-      branches:
-        entries:
-        - sit
-      name: release
-      context: ""
-      policy:
-        requiredStatusChecks:
-          contexts:
-            entries:
-            - whitesource
     - agent: tekton
       branches:
         entries:
         - sit
       cluster: ""
-      context: whitesource
+      context: ""
       labels: {}
       maxConcurrency: 0
-      name: whitesource
+      name: release
       report: false
       runIfChanged: ""
       skipBranches: {}
   presubmits:
-    replace: true
     entries:
     - agent: tekton
       alwaysRun: true
+      branches: {}
+      cluster: ""
       context: pr-build
+      labels: {}
+      maxConcurrency: 0
+      mergeMethod: ""
       name: pr-build
+      optional: false
       policy:
+        Replace: false
         requiredStatusChecks:
           contexts:
             entries:
             - pr-build
-            - github
-            - ghe
-            - gitlab
       queries:
-      - labels:
+      - excludedBranches: {}
+        includedBranches: {}
+        labels:
           entries:
           - approved
-          - lgtm
+        milestone: ""
         missingLabels:
           entries:
           - do-not-merge
@@ -59,30 +93,13 @@ spec:
           - do-not-merge/work-in-progress
           - needs-ok-to-test
           - needs-rebase
-          - needs-security-review
-      - labels:
+        reviewApprovedRequired: false
+      - excludedBranches: {}
+        includedBranches: {}
+        labels:
           entries:
-            - updatebot
-        missingLabels:
-          entries:
-            - do-not-merge
-            - do-not-merge/hold
-            - do-not-merge/work-in-progress
-            - needs-ok-to-test
-            - needs-rebase
-            - needs-security-review
-      report: true
-      rerunCommand: /test pr-build
-      trigger: (?m)^/test( all| pr-build),?(s+|$)
-    - agent: tekton
-      alwaysRun: true
-      context: ghe
-      name: ghe
-      queries:
-      - labels:
-          entries:
-          - approved
-          - lgtm
+          - updatebot
+        milestone: ""
         missingLabels:
           entries:
           - do-not-merge
@@ -90,143 +107,18 @@ spec:
           - do-not-merge/work-in-progress
           - needs-ok-to-test
           - needs-rebase
-          - needs-security-review
-      - labels:
-          entries:
-            - updatebot
-        missingLabels:
-          entries:
-            - do-not-merge
-            - do-not-merge/hold
-            - do-not-merge/work-in-progress
-            - needs-ok-to-test
-            - needs-rebase
-            - needs-security-review
+        reviewApprovedRequired: false
       report: true
-      rerunCommand: /test ghe
-      trigger: (?m)^/test( all| bdd| all-gh| ghe),?(s+|$)
-    - agent: tekton
-      alwaysRun: true
-      context: github
-      name: github
-      queries:
-      - labels:
-          entries:
-          - approved
-          - lgtm
-        missingLabels:
-          entries:
-          - do-not-merge
-          - do-not-merge/hold
-          - do-not-merge/work-in-progress
-          - needs-ok-to-test
-          - needs-rebase
-          - needs-security-review
-      - labels:
-          entries:
-            - updatebot
-        missingLabels:
-          entries:
-            - do-not-merge
-            - do-not-merge/hold
-            - do-not-merge/work-in-progress
-            - needs-ok-to-test
-            - needs-rebase
-            - needs-security-review
-      report: true
-      rerunCommand: /test github
-      trigger: (?m)^/test( all| bdd| all-gh| github),?(s+|$)
-    - agent: tekton
-      alwaysRun: false
-      context: bbs
-      name: bbs
-      queries:
-      - labels:
-          entries:
-          - approved
-          - lgtm
-        missingLabels:
-          entries:
-          - do-not-merge
-          - do-not-merge/hold
-          - do-not-merge/work-in-progress
-          - needs-ok-to-test
-          - needs-rebase
-          - needs-security-review
-      - labels:
-          entries:
-            - updatebot
-        missingLabels:
-          entries:
-            - do-not-merge
-            - do-not-merge/hold
-            - do-not-merge/work-in-progress
-            - needs-ok-to-test
-            - needs-rebase
-            - needs-security-review
-      report: true
-      rerunCommand: /test bbs
-      trigger: (?m)^/test( all| bdd| bbs),?(s+|$)
-    - agent: tekton
-      alwaysRun: true
-      context: gitlab
-      name: gitlab
-      queries:
-      - labels:
-          entries:
-          - approved
-          - lgtm
-        missingLabels:
-          entries:
-          - do-not-merge
-          - do-not-merge/hold
-          - do-not-merge/work-in-progress
-          - needs-ok-to-test
-          - needs-rebase
-          - needs-security-review
-      - labels:
-          entries:
-            - updatebot
-        missingLabels:
-          entries:
-            - do-not-merge
-            - do-not-merge/hold
-            - do-not-merge/work-in-progress
-            - needs-ok-to-test
-            - needs-rebase
-            - needs-security-review
-      report: true
-      rerunCommand: /test gitlab
-      trigger: (?m)^/test( all| bdd| gitlab),?(s+|$)
-    - agent: tekton
-      alwaysRun: false
-      context: migrate-from-prow
-      name: migrate-from-prow
-      queries:
-        - labels:
-            entries:
-              - approved
-              - lgtm
-          missingLabels:
-            entries:
-              - do-not-merge
-              - do-not-merge/hold
-              - do-not-merge/work-in-progress
-              - needs-ok-to-test
-              - needs-rebase
-              - needs-security-review
-        - labels:
-            entries:
-              - updatebot
-          missingLabels:
-            entries:
-              - do-not-merge
-              - do-not-merge/hold
-              - do-not-merge/work-in-progress
-              - needs-ok-to-test
-              - needs-rebase
-              - needs-security-review
-      report: true
-      rerunCommand: /test migrate-from-prow
-      trigger: (?m)^/test migrate-from-prow,?(s+|$)
-      
+      rerunCommand: /test this
+      runIfChanged: ""
+      skipBranches: {}
+      trigger: (?m)^/test( all| this),?(\s+|$)
+  schedulerAgent:
+    agent: tekton
+  trigger:
+    ignoreOkToTest: false
+    joinOrgUrl: ""
+    onlyOrgMembers: false
+    trustedOrg: majuansari
+  welcome:
+  - message_template: Welcome
