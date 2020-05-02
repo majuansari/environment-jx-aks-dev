@@ -36,7 +36,7 @@ environments:
   key: test
   repository: environment-jx-aks-test
 - ingress:
-    domain: "x"
+    domain: 52.152.185.236.nip.io
     externalDNS: false
     namespaceSubDomain: -jx.
     tls:
@@ -57,7 +57,7 @@ environments:
   repository: environment-jx-aks-prod
 gitops: true
 ingress:
-  domain: 52.186.109.119.nip.io
+  domain: 52.152.185.236.nip.io
   externalDNS: false
   namespaceSubDomain: -jx.
   tls:
