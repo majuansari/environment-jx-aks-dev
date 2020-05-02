@@ -1,7 +1,7 @@
 autoUpdate:
   enabled: false
   schedule: ""
-bootConfigURL: https://github.com/majuansari/jenkins-x-boot-config
+bootConfigURL: https://github.com/majuansari/environment-jx-aks-dev
 cluster:
   clusterName: majutest
   devEnvApprovers:
@@ -15,13 +15,49 @@ cluster:
   provider: aks
   registry: majutest.azurecr.io
 environments:
-- key: dev
-- key: test
-- key: staging
-- key: production
+- ingress:
+    domain: 20.185.72.64.nip.io
+    externalDNS: false
+    namespaceSubDomain: -jx.
+    tls:
+      email: ""
+      enabled: false
+      production: false
+  key: dev
+  repository: environment-jx-aks-dev
+- ingress:
+    domain: ""
+    externalDNS: false
+    namespaceSubDomain: ""
+    tls:
+      email: ""
+      enabled: false
+      production: false
+  key: test
+  repository: environment-majutest-test
+- ingress:
+    domain: ""
+    externalDNS: false
+    namespaceSubDomain: ""
+    tls:
+      email: ""
+      enabled: false
+      production: false
+  key: staging
+  repository: environment-majutest-staging
+- ingress:
+    domain: ""
+    externalDNS: false
+    namespaceSubDomain: ""
+    tls:
+      email: ""
+      enabled: false
+      production: false
+  key: production
+  repository: environment-majutest-production
 gitops: true
 ingress:
-  domain: 52.152.185.236.nip.io
+  domain: 20.185.72.64.nip.io
   externalDNS: false
   namespaceSubDomain: -jx.
   tls:
@@ -51,4 +87,4 @@ velero:
 versionStream:
   ref: v1.0.426
   url: https://github.com/jenkins-x/jenkins-x-versions.git
-webhook: prow
+webhook: lighthouse
