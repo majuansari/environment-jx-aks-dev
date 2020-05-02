@@ -1,3 +1,6 @@
+#Create scheduler, create env via jx create env, edit env and add scheduler to teamsetting
+#Create source repository and include scheduler 
+
 apiVersion: jenkins.io/v1
 kind: Scheduler
 metadata:

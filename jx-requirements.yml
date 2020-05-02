@@ -15,46 +15,10 @@ cluster:
   provider: aks
   registry: majutest.azurecr.io
 environments:
-- ingress:
-    domain: ""
-    externalDNS: false
-    namespaceSubDomain: ""
-    tls:
-      email: ""
-      enabled: false
-      production: false
-  key: staging
-  repository: environment-jx-aks-staging
-- ingress:
-    domain: ""
-    externalDNS: false
-    namespaceSubDomain: ""
-    tls:
-      email: ""
-      enabled: false
-      production: false
-  key: test
-  repository: environment-jx-aks-test
-- ingress:
-    domain: 52.152.185.236.nip.io
-    externalDNS: false
-    namespaceSubDomain: -jx.
-    tls:
-      email: ""
-      enabled: false
-      production: false
-  key: dev
-  repository: environment-jx-aks-dev
-- ingress:
-    domain: ""
-    externalDNS: false
-    namespaceSubDomain: ""
-    tls:
-      email: ""
-      enabled: false
-      production: false
-  key: production
-  repository: environment-jx-aks-prod
+- key: dev
+- key: test
+- key: staging
+- key: production
 gitops: true
 ingress:
   domain: 52.152.185.236.nip.io
