@@ -5,11 +5,11 @@ bootConfigURL: https://github.com/majuansari/environment-jx-aks-dev
 cluster:
   clusterName: majutest
   devEnvApprovers:
-  - majuansari
-  environmentGitOwner: majuansari
-  gitKind: github
-  gitName: github
-  gitServer: https://github.com
+  - majjansari
+  environmentGitOwner: majjansari
+  gitKind: bitbucketcloud
+  gitName: bbc
+  gitServer: https://bitbucket.com
   namespace: jx
   project: majutest
   provider: aks
@@ -25,16 +25,6 @@ environments:
       production: false
   key: dev
   repository: environment-jx-aks-dev
-- ingress:
-    domain: ""
-    externalDNS: false
-    namespaceSubDomain: ""
-    tls:
-      email: ""
-      enabled: false
-      production: false
-  key: test
-  repository: environment-majutest-test
 - ingress:
     domain: ""
     externalDNS: false
@@ -85,6 +75,6 @@ velero:
   schedule: ""
   ttl: ""
 versionStream:
-  ref: v1.0.440
+  ref: v1.0.426
   url: https://github.com/jenkins-x/jenkins-x-versions.git
-webhook: prow
+webhook: lighthouse
