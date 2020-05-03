@@ -1,6 +1,7 @@
 autoUpdate:
   enabled: false
   schedule: ""
+bootConfigURL: https://github.com/majuansari/environment-jx-aks-dev
 cluster:
   clusterName: majutest
   devEnvApprovers:
@@ -56,7 +57,7 @@ environments:
   repository: environment-majutest-production
 gitops: true
 ingress:
-  domain: 20.185.72.64.nip.io
+  domain: ""
   externalDNS: false
   namespaceSubDomain: -jx.
   tls:
@@ -83,7 +84,4 @@ vault: {}
 velero:
   schedule: ""
   ttl: ""
-versionStream:
-  ref: v1.0.426
-  url: https://github.com/jenkins-x/jenkins-x-versions.git
 webhook: prow
