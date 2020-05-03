@@ -57,7 +57,7 @@ environments:
   repository: environment-majutest-production
 gitops: true
 ingress:
-  domain: ""
+  domain: 20.185.72.64.nip.io
   externalDNS: false
   namespaceSubDomain: -jx.
   tls:
@@ -84,4 +84,7 @@ vault: {}
 velero:
   schedule: ""
   ttl: ""
+versionStream:
+  ref: v1.0.440
+  url: https://github.com/jenkins-x/jenkins-x-versions.git
 webhook: prow
