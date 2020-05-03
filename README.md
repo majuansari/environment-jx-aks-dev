@@ -1,96 +1,273 @@
+# JX
 
-## Jenkins X Boot Configuration
+JX is a command line tool for installing and using [Jenkins X](https://jenkins-x.io/).
 
-This repository contains the source code for [Jenkins X Boot configuration](https://jenkins-x.io/docs/getting-started/setup/boot/) so that you can setup, upgrade or configure your Jenkins X installation via GitOps.
+[![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/3237/badge)](https://bestpractices.coreinfrastructure.org/projects/3237)
+[![GoDoc](https://godoc.org/github.com/jenkins-x/jx?status.svg)](https://godoc.org/github.com/jenkins-x/jx)
+[![Docs](https://readthedocs.org/projects/docs/badge/?version=latest)](https://jenkins-x.io/documentation/)
+[![Docker Pulls](https://img.shields.io/docker/pulls/jenkinsxio/jx.svg)](https://hub.docker.com/r/jenkinsxio/jx/tags)
+[![Downloads](https://img.shields.io/github/downloads/jenkins-x/jx/total.svg)](https://github.com/jenkins-x/jx/releases)
+[![GoReport](https://goreportcard.com/badge/github.com/jenkins-x/jx)](https://goreportcard.com/report/github.com/jenkins-x/jx)
+[![Apache](https://img.shields.io/badge/license-Apache-blue.svg)](https://github.com/jenkins-x/jx/blob/master/LICENSE)
+[![Reviewed by Hound](https://img.shields.io/badge/reviewed_by-Hound-8E64B0.svg)](https://houndci.com)
+![Build Status](https://img.shields.io/endpoint?url=https%3A%2F%2Fstatusbadge-jx.jenkins-x.live%2Fjx)
+[![Slack Status](https://img.shields.io/badge/slack-join_chat-white.svg?logo=slack&style=social)](https://slack.k8s.io/)
 
-## How to install...
+## Installing
 
-### Creating a kubernetes cluster
+Check out [how to install jx](https://jenkins-x.io/docs/getting-started/setup/install/).
 
-* either use Terraform to spin up a GKE cluster with a `jx` namespace and any necessary cloud resources (e.g. on GCP we need a Kaniko Service Account and Secret)
-* create an empty GKE cluster by hand e.g. via `jx create cluster gke --skip-installation` or using the [GCP Console](https://console.cloud.google.com/)
+## Getting Started
 
-### Run the new Jenkins X Bootstrap Pipeline
+Please check out the [Getting Started Guide](https://jenkins-x.io/docs/getting-started/) on how to:
 
-Create a fork of this git repository on github. We suggest renaming it to match the pattern `environment-<cluster name>-dev`. To rename your repository go to the repository settings in github. 
+* [create new Kubernetes clusters with Jenkins X](https://jenkins-x.io/docs/getting-started/setup/create-cluster/)
+* [install Jenkins X on existing Kubernetes clusters](https://jenkins-x.io/docs/managing-jx/old/install-on-cluster/)
 
-Clone your newly forked git repository:
+Then [what to do next when you have Jenkins X installed](https://jenkins-x.io/getting-started/next/).
 
-```
-git clone https://github.com/<org>/environment-<cluster name>-dev && cd environment-<cluster name>-dev
-```
+## Welcome to the Jenkins X Community
+
+We value respect and inclusiveness and follow the [CDF Code of Conduct](https://github.com/cdfoundation/toc/blob/master/CODE_OF_CONDUCT.md) in all interactions.
+
+We’d love to talk with you about Jenkins X and are happy to help if you have any questions.
+
+Talk to us on our slack channels, which are part of the Kubernetes slack. Join Kubernetes slack [here](https://slack.k8s.io/) and find us on our channels:
+
+* [#jenkins-x-user](https://app.slack.com/client/T09NY5SBT/C9MBGQJRH) for users of Jenkins X
+
+* [#jenkins-x-dev](https://app.slack.com/client/T09NY5SBT/C9LTHT2BB) for developers of Jenkins X
+
+Find out more about our bi-weekly office hours, where we discuss all things Jenkins X, and other events [here](https://jenkins-x.io/community/).
+
+## Getting Help
+
+To find out the available commands type:
+
+    jx
+
+Or to get help on a specific command, say, `create` then type:
+
+    jx help create
+
+You can also browse the [jx command reference documentation](https://jenkins-x.io/commands/jx/).
+
+## Reference
+
+* [Command Line Reference](https://jenkins-x.io/commands/jx/#jx)
+  
+  
+## Opening Consoles
+
+To open the Jenkins console try:
+
+    jx console
+    
+Or to open other consoles:
+
+    jx open foo
+    
+If you do not know the name:
+
+    jx open
+    
+
+## Tail logs
+
+To tail the logs of anything running on Kubernetes (jenkins or your own applications) type.
+
+    jx logs
+    
+Which prompts you for the deployment to log then tails the logs of the newest pod for an app.
+
+You can filter the list of deployments via:
+
+    jx logs -f cheese
+
+Then if there's only one deployment with a name that contains `cheese` then it'll tail the logs of the latest pod or will prompt you to choose the exact deployment to use.
+
+## Remote shells
+
+You can open a remote shell inside any pods container via the `rsh` command:
+
+    jx rsh
+    
+Or to open a shell inside a pod named foo:
+
+    jx rsh foo
+
+Pass `-c` to specify the container name. e.g. to open a shell in a maven build pod:
+
+    jx rsh -c maven maven
+
+## Importing or Creating apps
+
+To import an application from the current directory:
+
+    jx import
+    
+Or to create a new Spring Boot application from scratch:
+
+    jx create spring
+    
+e.g. to create a new WebMVC and Spring Boot Actuator microservice try this:
+
+    jx create spring -d web -d actuator
+        
+    
+## Starting builds
+
+To start a pipeline using a specific name try:
+
+    jx start pipeline myorg/myrepo
+
+Or to pick the pipeline to start:
+
+    jx start pipeline
+
+If you know part of the name of the pipeline to run you can filter the list via:
+
+    jx start pipeline -f thingy
+
+You can start and tail the build log via:
+		
+    jx start pipeline -t
+
+## Viewing Apps and Environments
+
+To view environments for a team:
+
+    jx get env
+    
+To view the application versions across environments:
+
+    jx get version
+            
+## Manual promotions
+
+Typically we setup Environments to use _automatic_ promotion so that the CI / CD pipelines will automatically promote versions through the available Environments using the CI / CD Pipeline.
+
+However if you wish to manually promote a version to an environment you can use the following command:
+
+    jx promote myapp -e prod 
+    
+Or if you wish to use a custom namespace:   
+
+    jx promote myapp -n my-dummy-namespace
  
-> It's important that you cd into your newly checked out git repo, otherwise `jx boot` will use the upstream Jenkins X boot
-configuration.
+## Switching Environments
 
-Now, in the checkout, run:
+The `jx` CLI tool uses the same Kubernetes cluster and namespace context as `kubectl`. 
 
-``` 
-jx boot
-```
+You can switch Environments via:
 
-If you are not in a clone of a boot git repository then `jx boot` will clone this repository and `cd` into the clone.
+    jx env
+    
+Or change it via:
 
-The bootstrap process runs the Jenkins X Pipeline in interpret mode as there's nothing running in your Kubernetes cluster yet and so there's no server side tekton controller until after we bootstrap.
+    jx env staging
+    jx env prod
+    
+To display the current environment without trying to change it:
 
-The bootstrap process will also ask you for various important `parameters` which are used to populate a bunch of `Secrets` stored in either Vault or the local file system (well away from your git clone).
+    jx env -b
 
-The pipeline will then setup the ingress controller, then cert manager, then install the actual development environment.
+To view all the environments type:
 
-Apart from the secrets populated to Vault / local file system everything else is stored inside this git repository as Apps and helm charts.
+    jx get env
+    
+You can create or edit environments too:
+
+    jx create env
+    
+    jx edit env staging
+    
+You can switch namespaces in the same way via:
+
+    jx ns
+
+or
+
+    jx ns awesome-staging    
+
+## Switching Clusters
+
+If you have multiple Kubernetes clusters then you can switch between them via:
+
+    jx ctx
+
+**Note** that changing the namespace ,environment or cluster changes the current context for **ALL** shells!
+
+### Sub shells
+
+So if you want to work temporarily with, say, the production cluster we highly recommend you use a sub shell for that.
+
+    jx shell my-prod-context
+    
+Or to pick the context to use for the sub shell:
+
+    jx shell 
+
+Then your bash prompt will be updated to reflect that you are in a different context and/or namespace. Any changes to the namespace, environment or context will be local to the current shell only!    
+
+### Setting your prompt
+
+You can use the `jx prompt` to configure your CLI prompt to display the current team and environment you are working within:          
+                                            
+		# Enable the prompt for bash
+		PS1="[\u@\h \W \$(jx prompt)]\$ "
+
+		# Enable the prompt for zsh
+		PROMPT='$(jx prompt)'$PROMPT
+
+**Note** that the prompt is updated automatically for you via the `jx shell` command too.
+
+### Bash completion
+
+On a Mac to enable bash completion try:
+
+    jx completion bash > ~/.jx/bash
+    source ~/.jx/bash   
+    
+Or try:
+
+    source <(jx completion bash)
+
+For more help try:
+
+    jx help completion bash
+           
+## Addons
+
+We are adding a number of addon capabilities to Jenkins X. To add or remove addons use the `jx create addon` or `jx delete addon` commands.
+
+For example to add the [Gitea Git server](https://gitea.io/en-US/) to your Jenkins X installation try:
+
+    jx create addon gitea
+
+This will:
+
+* install the Gitea Helm chart.
+* add Gitea as a Git server (via the `jx create git server gitea` command).
+* create a new user in Gitea (via the `jx create git user -n gitea` command).
+* create a new Git API token in Gitea (via the `jx create git token -n gitea -p password username` command).
+
+## Troubleshooting
+
+We have tried to collate common issues here with work arounds. If your issue isn't listed here please [let us know](https://github.com/jenkins-x/jx/issues/new).
+
+### Other issues
+
+Please [let us know](https://github.com/jenkins-x/jx/issues/new) and see if we can help? Good luck!
+
+## Contributing
+
+We welcome your contributions.
+
+If you're looking to build from source or get started hacking on jx, please see the [CONTRIBUTING.MD](CONTRIBUTING.MD) or our [Contributing Guide](https://jenkins-x.io/docs/contributing/code/) on the Jenkins X website.
 
 
-### How it works
-
-We have improved the support for value + secret composition via this [issue](https://github.com/jenkins-x/jx/issues/4328).
+[![](https://codescene.io/projects/4772/status.svg) Get more details at **codescene.io**.](https://codescene.io/projects/4772/jobs/latest-successful/results)
 
 
-### Parameters file
-
-We define a [env/parameters.yaml](https://github.com/jenkins-x/jenkins-x-boot-config/blob/master/env/parameters.yaml) file which defines all the parameters either checked in or loaded from Vault or a local file system secrets location.
-
-#### Injecting secrets into the parameters
-
-If you look at the current [env/parameters.yaml](https://github.com/jenkins-x/jenkins-x-boot-config/blob/master/env/parameters.yaml) file you will see some values inlined and others use URIs of the form `local:my-cluster-folder/nameofSecret/key`. This currently supports 2 schemes:
-
-* `vault:` to load from a path + key from Vault
-* `local:` to load from a key in a YAML file at `~/.jx/localSecrets/$path.yml`
-
-This means we can populate all the Parameters we need on startup then refer to them from `values.yaml` to populate the tree of values to then inject those into Vault.
-
-
-#### Populating the `parameters.yaml` file 
-
-We can then use the new step to populate the `parameters.yaml` file via this command in the `env` folder:
-
-``` 
-jx step create values --name parameters
-```
-
-This uses the [parameters.schema.json](https://github.com/jenkins-x/jenkins-x-boot-config/blob/master/env/parameters.schema.json) file which powers the UI.
-
-So if you wanted to perform your own install from this git repo, just fork it, remove `env/parameters.yaml` and run the bootstrap command!
-
-### Improvements to values.yaml
-
-#### Support a tree of values.yaml files
-
-Rather than a huge huge deeply nested values.yaml file we can have a tree of files for each App only include the App specific configuration in each folder. e.g.
-
-``` 
-env/
-  values.yaml   # top level configuration
-  prow/
-    values.yaml # prow specific config
-  tekton/
-    vales.yaml  # tekton specific config 
-```
-  
-  
-#### values.yaml templates
-
-When using `jx step helm apply` we now allow `values.yaml` files to use go/helm templates just like `templates/foo.yaml` files support inside helm charts so that we can generate value/secret strings which can use templating to compose things from smaller secret values. e.g. creating a maven `settings.xml` file or docker `config.json` which includes many user/passwords for different registries.
-
-We can then check in the `values.yaml` file which does all of this composition and reference the actual secret values via URLs (or template functions) to access vault or local vault files
-
-To do this we use expressions like: `{{ .Parameter.pipelineUser.token }}` somewhere in the `values.yaml` values file. So this is like injecting values into the helm templates; but it happens up front to help generate the `values.yaml` files.
+[experiments]: docs/contributing/experiments.md
