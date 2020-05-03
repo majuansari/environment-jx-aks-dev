@@ -87,4 +87,4 @@ velero:
 versionStream:
   ref: v1.0.426
   url: https://github.com/jenkins-x/jenkins-x-versions.git
-webhook: lighthouse
+webhook: prow
